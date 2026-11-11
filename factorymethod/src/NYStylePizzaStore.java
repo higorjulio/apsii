@@ -1,22 +1,23 @@
-public class NYStylePizzaStore extends PizzaStore{
-	protected Pizza createPizza(String item) {
-		Pizza pizza = null;
-		
-		PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
-		
-		if(item.equals("Queijo")) {
-			pizza = new CheesePizza(ingredientFactory);
-			pizza.setName("Pizza de Queijo no Estilo de Nova York");
-		} else if (item.equals("vegetariana")) {
-			pizza = new VeggiePizza(ingredientFactory);
-			pizza.setName("Pizza Vegetariana no Estilo de Nova York");
-		} else if (item.equals("mariscos")) {
-			pizza = new ClamPizza(ingredientFactory);
-			pizza.setName("Pizza de Mariscos no Estilo de Nova York");
-		} else if (item.equals("Calabresa")) {
-			pizza = new PepperoniPizza(ingredientFactory);
-			pizza.setName("Pizza de Calabresa no Estilo de Nova York");
-		}
-		return pizza;
-	}
+public class NYStylePizzaStore extends PizzaStore {
+
+    @Override
+    protected Pizza createPizza(String item) {
+        Pizza pizza = null;
+        PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
+
+        if (item.equalsIgnoreCase("Queijo")) {
+            pizza = new CheesePizza(ingredientFactory);
+            pizza.setName("Pizza de Queijo no Estilo de Nova York");
+        } else if (item.equalsIgnoreCase("vegetariana")) {
+            pizza = new VeggiePizza(ingredientFactory);
+            pizza.setName("Pizza Vegetariana no Estilo de Nova York");
+        } else if (item.equalsIgnoreCase("mariscos")) {
+            pizza = new ClamPizza(ingredientFactory);
+            pizza.setName("Pizza de Mariscos no Estilo de Nova York");
+        } else if (item.equalsIgnoreCase("Calabresa")) {
+            pizza = new PepperoniPizza(ingredientFactory);
+            pizza.setName("Pizza de Calabresa no Estilo de Nova York");
+        }
+        return pizza;
+    }
 }
